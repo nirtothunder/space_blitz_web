@@ -383,7 +383,6 @@
         </div>
     </section>
 
-    <!-- Страница загрузки -->
     <section class="download-page" id="downloadPage">
         <h2 class="download-title">Установить Space Blitz</h2>
         
@@ -433,14 +432,12 @@
                 newsSection.style.display = 'none';
                 downloadPage.style.display = 'block';
                 
-                // Прокрутка вверх страницы
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
             
-            // Обработчик для кнопки "Вернуться на главную"
             backButton.addEventListener('click', function(e) {
                 e.preventDefault();
                 mainBanner.style.display = 'flex';
@@ -448,22 +445,14 @@
                 downloadPage.style.display = 'none';
             });
             
-            // Имитация входа и регистрации (можно заменить на реальную логику)
-            document.querySelector('.login').addEventListener('click', function() {
-                alert('Форма входа будет здесь');
-            });
-            
             document.querySelector('.register').addEventListener('click', function() {
                 alert('Форма регистрации будет здесь');
             });
-            
-            // Переключение языков
             const languageButtons = document.querySelectorAll('.language-button');
             languageButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     languageButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    // Здесь можно добавить логику смены языка
                 });
             });
         });
