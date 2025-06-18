@@ -254,7 +254,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Имитация входа и регистрации
             document.querySelector('.login').addEventListener('click', function() {
                 window.location.href = '/login';
             });
@@ -262,14 +261,11 @@
             document.querySelector('.register').addEventListener('click', function() {
                 window.location.href = '/register';
             });
-            
-            // Переключение языков
             const languageButtons = document.querySelectorAll('.language-button');
             languageButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     languageButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    // Здесь можно добавить логику смены языка
                 });
             });
         });
