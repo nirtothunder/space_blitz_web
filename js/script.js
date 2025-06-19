@@ -69,10 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     function initEventListeners() {
-        document.querySelector('.login-btn').addEventListener('click', () => {
-            alert('Не удалось войти в аккаунт!');
-        });
-        
         const newsCards = document.querySelectorAll('.news-card');
         newsCards.forEach(card => {
             card.addEventListener('mouseenter', () => {
