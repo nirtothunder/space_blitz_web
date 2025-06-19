@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     function initEventListeners() {
         document.querySelector('.login-btn').addEventListener('click', () => {
-            alert('Форма входа будет здесь!');
+            alert('Не удалось войти в аккаунт!');
         });
         
         const newsCards = document.querySelectorAll('.news-card');
