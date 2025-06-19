@@ -3,459 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная | Space Blitz</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        body {
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-        
-        .header {
-            background-color: #000;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            border-bottom: 2px solid #3a3a3a;
-        }
-        
-        .logo {
-            height: 50px;
-            cursor: pointer;
-        }
-        
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-item {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 14px;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-        
-        .nav-item:hover {
-            color: #f0a30a;
-        }
-        
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .auth-button {
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .login {
-            background-color: transparent;
-            color: #fff;
-            border: 1px solid #fff;
-        }
-        
-        .login:hover {
-            background-color: #333;
-        }
-        
-        .register {
-            background-color: #f0a30a;
-            color: #000;
-            border: 1px solid #f0a30a;
-        }
-        
-        .register:hover {
-            background-color: #d1920a;
-        }
-        
-        .main-banner {
-            height: 600px;
-            background-image: url('https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/content/images/test_bg.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .banner-title {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .banner-subtitle {
-            font-size: 24px;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .play-button {
-            background: linear-gradient(to bottom, #360000 0%, #c22d00 100%);
-            color: #000;
-            padding: 15px 40px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 0 #401204, 
-                        0 5px 10px rgba(0, 0, 0, 0.5),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .play-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-            border-radius: 4px 4px 0 0;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-        
-        .play-button:hover {
-            background: linear-gradient(to bottom, #870f0f 0%, #b33914 100%);
-            box-shadow: 0 4px 0 #401204, 
-                        0 5px 15px rgba(0, 0, 0, 0.6),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .play-button:hover::before {
-            opacity: 1;
-        }
-        
-        .play-button:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #401204, 
-                        0 3px 5px rgba(0, 0, 0, 0.5),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-        
-        .play-button:active::before {
-            opacity: 0.5;
-        }
-        
-        .news-section {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #f0a30a;
-            text-align: center;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .news-card {
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .news-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        
-        .news-content {
-            padding: 20px;
-        }
-        
-        .news-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #f0a30a;
-        }
-        
-        .news-date {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .news-text {
-            color: #ccc;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .read-more {
-            color: #f0a30a;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .footer {
-            background-color: #000;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 2px solid #3a3a3a;
-        }
-        
-        .footer-logo {
-            height: 40px;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-link {
-            color: #999;
-            text-decoration: none;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-        
-        .footer-link:hover {
-            color: #f0a30a;
-        }
-        
-        .copyright {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .language-selector {
-            margin-top: 20px;
-        }
-        
-        .language-button {
-            background-color: transparent;
-            color: #999;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        
-        .language-button.active {
-            color: #f0a30a;
-            font-weight: bold;
-        }
-
-        /* Стили для страницы загрузки */
-        .download-page {
-            display: none;
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .download-title {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #f0a30a;
-        }
-
-        .download-options {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .download-option {
-            background-color: #2a2a2a;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .download-option:hover {
-            transform: translateY(-5px);
-            background-color: #333;
-        }
-
-        .platform-name {
-            font-size: 24px;
-            color: #f0a30a;
-            margin-bottom: 10px;
-        }
-
-        .download-button {
-            background-color: #f0a30a;
-            color: #000;
-            padding: 10px 25px;
-            font-weight: bold;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .download-button:hover {
-            background-color: #d1920a;
-        }
-
-        .back-button {
-            color: #f0a30a;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            display: inline-block;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Space Blitz | Главная</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/css/style.css">
 </head>
 <body>
-    <header class="header">
-        <img src="https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/content/images/wotb_logo.png" alt="Space Blitz" class="logo" onclick="window.location.href='https://nirtothunder.github.io/space_blitz_web/'">
-        
-        <nav class="nav">
-            <a href="https://nirtothunder.github.io/space_blitz_web/" class="nav-item">Главная</a>
-            <a href="https://nirtothunder.github.io/space_blitz_web/error" class="nav-item">Новости</a>
-            <a href="https://nirtothunder.github.io/space_blitz_web/error" class="nav-item">Поддержка</a>
-        </nav>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">SPACE BLITZ</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="https://t.me/SpaceBlitzProjectChat">Сообщество</a></li>
+                        <li><a href="#">Магазин</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
     
-    <section class="main-banner" id="mainBanner">
-        <h1 class="banner-title">SPACE BLITZ</h1>
-        <p class="banner-subtitle"></p>
-        <button class="play-button" id="playButton">ИГРАТЬ</button>
-    </section>
-    
-    <section class="news-section" id="newsSection">
-        <h2 class="section-title">НОВОСТИ</h2>
+    <main class="container">
+        <section class="main-news"      style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x400')">
+    <div class="news-content">
+        <h2 class="news-title"></h2>
+        <p></p>
+        <button class="login-btn" style="margin-top: 15px;">Подробнее</button>
+    </div>
+</section>        
+        <section class="tank-carousel">
+            <div class="tank-slide active">
+                <img src="https://via.placeholder.com/800x300" alt="Танк 1">
+                <h3></h3>
+            </div>
+            <div class="tank-slide">
+                <img src="https://via.placeholder.com/800x300" alt="Танк 2">
+                <h3></h3>
+            </div>
+        </section>
         
-        <div class="news-grid">
-            <div class="news-card">
-                <img src="https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/content/thumbnails/thumbnail_0.png" alt="Новость" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title">Обновление 0.0.136</h3>
-                    <p class="news-date">29 июня 2985</p>
-                    <p class="news-text">Были добавлены новости.</p>
-                    <a href="https://nirtothunder.github.io/space_blitz_web/error" class="read-more">Читать далее →</a>
+        <section class="news-grid">
+            <article class="news-card">
+                <img src="https://via.placeholder.com/400x150" alt="Новость 1">
+                <div class="news-card-content">
+                    <h3></h3>
+                    <p></p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="download-page" id="downloadPage">
-        <h2 class="download-title">Установить Space Blitz</h2>
-        
-        <div class="download-options">
-            <div class="download-option">
-                <h3 class="platform-name">Windows</h3>
-                <p>ПК версия</p>
-                <a href="https://nirtothunder.github.io/space_blitz_web/error" class="download-button">Скачать для Windows</a>
-            </div>
-            
-            <div class="download-option">
-                <h3 class="platform-name">DEV client</h3>
-                <p>Версия для разработчиков/тестеров. Требуется ключ</p>
-                <a href="https://nirtothunder.github.io/space_blitz_web/error" class="download-button">Установить dev клиент</a>
-            </div>
-        </div>
-        
-        <a href="#" class="back-button" id="backButton">← Вернуться на главную</a>
-    </section>
+            </article>
+        </section>
+    </main>
     
-    <footer class="footer">
-        <img src="https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/content/images/wotb_logo.png" alt="Space Blitz" class="footer-logo" onclick="window.location.href='https://nirtothunder.github.io/space_blitz_web/'">
-        
-        <div class="footer-links">
-            <a href="https://nirtothunder.github.io/space_blitz_web/error" class="footer-link">Политика конфиденциальности</a>
-            <a href="https://nirtothunder.github.io/space_blitz_web/error" class="footer-link">Условия использования</a>
-            <a href="https://nirtothunder.github.io/space_blitz_web/error" class="footer-link">Поддержка</a>
-        </div>
-        
-        <p class="copyright">© 2025 Nirtothunder</p>
-        
-        <div class="language-selector">
-            <button class="language-button active">Русский</button>
+    <footer>
+        <div class="container">
+            <p>© 2025 by nirtothunder</p>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const playButton = document.getElementById('playButton');
-            const backButton = document.getElementById('backButton');
-            const mainBanner = document.getElementById('mainBanner');
-            const newsSection = document.getElementById('newsSection');
-            const downloadPage = document.getElementById('downloadPage');
-            
-            playButton.addEventListener('click', function() {
-                mainBanner.style.display = 'none';
-                newsSection.style.display = 'none';
-                downloadPage.style.display = 'block';
-                
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            backButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                mainBanner.style.display = 'flex';
-                newsSection.style.display = 'block';
-                downloadPage.style.display = 'none';
-            });
-            
-            document.querySelector('.register').addEventListener('click', function() {
-                alert('Форма регистрации будет здесь');
-            });
-            const languageButtons = document.querySelectorAll('.language-button');
-            languageButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    languageButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
+    
+    <script src="https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/js/script.js"></script>
 </body>
 </html>
