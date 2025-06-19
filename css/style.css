@@ -54,7 +54,7 @@ nav ul li a:hover {
 }
 
 .main-news {
-    background: linear-gradient(rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center;
+    background: linear-gradient(rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.7)), url('https://raw.githubusercontent.com/nirtothunder/space_blitz_web/refs/heads/main/content/thumbnails/thumbnail_main.png') no-repeat center;
     background-size: cover;
     height: 400px;
     display: flex;
