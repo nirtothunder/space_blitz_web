@@ -46,11 +46,16 @@ nav ul li {
 nav ul li a {
     color: #c0c0ff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
 }
 
 nav ul li a:hover {
     color: #a87cff;
+    transform: translateY(-3px);
+    text-shadow: 0 2px 8px rgba(168, 124, 255, 0.4);
 }
 
 .main-news {
@@ -86,6 +91,12 @@ nav ul li a:hover {
     border-radius: 5px;
     overflow: hidden;
     border: 1px solid #3a3a5a;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(106, 140, 255, 0.2);
 }
 
 .news-card img {
@@ -134,11 +145,13 @@ footer {
     border-radius: 3px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .more-btn:hover {
     background-color: #a87cff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(168, 124, 255, 0.3);
 }
 
 .tank-carousel {
@@ -153,4 +166,4 @@ footer {
 
 .tank-slide.active {
     display: block;
-  }
+                                 }
